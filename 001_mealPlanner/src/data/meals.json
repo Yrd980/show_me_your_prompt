@@ -1,0 +1,260 @@
+{
+  "meals": [
+    {
+      "id": 1,
+      "name": "Scrambled Eggs & Toast",
+      "category": "breakfast",
+      "ingredients": [
+        { "item": "Eggs", "amount": "4", "category": "dairy" },
+        { "item": "Bread", "amount": "4 slices", "category": "pantry" },
+        { "item": "Butter", "amount": "2 tbsp", "category": "dairy" },
+        { "item": "Salt", "amount": "to taste", "category": "spices" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Oatmeal with Berries",
+      "category": "breakfast",
+      "ingredients": [
+        { "item": "Oats", "amount": "1 cup", "category": "pantry" },
+        { "item": "Milk", "amount": "2 cups", "category": "dairy" },
+        { "item": "Blueberries", "amount": "1 cup", "category": "produce" },
+        { "item": "Honey", "amount": "2 tbsp", "category": "pantry" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pancakes",
+      "category": "breakfast",
+      "ingredients": [
+        { "item": "Flour", "amount": "2 cups", "category": "pantry" },
+        { "item": "Eggs", "amount": "2", "category": "dairy" },
+        { "item": "Milk", "amount": "1.5 cups", "category": "dairy" },
+        { "item": "Butter", "amount": "4 tbsp", "category": "dairy" },
+        { "item": "Maple syrup", "amount": "1/2 cup", "category": "pantry" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Greek Yogurt Bowl",
+      "category": "breakfast",
+      "ingredients": [
+        { "item": "Greek yogurt", "amount": "2 cups", "category": "dairy" },
+        { "item": "Granola", "amount": "1 cup", "category": "pantry" },
+        { "item": "Banana", "amount": "1", "category": "produce" },
+        { "item": "Strawberries", "amount": "1 cup", "category": "produce" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Avocado Toast",
+      "category": "breakfast",
+      "ingredients": [
+        { "item": "Bread", "amount": "4 slices", "category": "pantry" },
+        { "item": "Avocado", "amount": "2", "category": "produce" },
+        { "item": "Eggs", "amount": "4", "category": "dairy" },
+        { "item": "Salt", "amount": "to taste", "category": "spices" },
+        { "item": "Red pepper flakes", "amount": "1 tsp", "category": "spices" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Chicken Caesar Salad",
+      "category": "lunch",
+      "ingredients": [
+        { "item": "Chicken breast", "amount": "500g", "category": "meat" },
+        { "item": "Romaine lettuce", "amount": "2 heads", "category": "produce" },
+        { "item": "Caesar dressing", "amount": "1/2 cup", "category": "pantry" },
+        { "item": "Parmesan cheese", "amount": "1/2 cup", "category": "dairy" },
+        { "item": "Croutons", "amount": "1 cup", "category": "pantry" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Grilled Cheese Sandwich",
+      "category": "lunch",
+      "ingredients": [
+        { "item": "Bread", "amount": "8 slices", "category": "pantry" },
+        { "item": "Cheddar cheese", "amount": "300g", "category": "dairy" },
+        { "item": "Butter", "amount": "4 tbsp", "category": "dairy" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Tuna Sandwich",
+      "category": "lunch",
+      "ingredients": [
+        { "item": "Canned tuna", "amount": "2 cans", "category": "pantry" },
+        { "item": "Bread", "amount": "8 slices", "category": "pantry" },
+        { "item": "Mayonnaise", "amount": "1/4 cup", "category": "pantry" },
+        { "item": "Lettuce", "amount": "1 head", "category": "produce" },
+        { "item": "Tomato", "amount": "2", "category": "produce" }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Vegetable Wrap",
+      "category": "lunch",
+      "ingredients": [
+        { "item": "Tortillas", "amount": "4", "category": "pantry" },
+        { "item": "Hummus", "amount": "1 cup", "category": "pantry" },
+        { "item": "Bell peppers", "amount": "2", "category": "produce" },
+        { "item": "Cucumber", "amount": "1", "category": "produce" },
+        { "item": "Carrots", "amount": "2", "category": "produce" },
+        { "item": "Lettuce", "amount": "1 head", "category": "produce" }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Chicken Noodle Soup",
+      "category": "lunch",
+      "ingredients": [
+        { "item": "Chicken breast", "amount": "300g", "category": "meat" },
+        { "item": "Egg noodles", "amount": "200g", "category": "pantry" },
+        { "item": "Carrots", "amount": "2", "category": "produce" },
+        { "item": "Celery", "amount": "3 stalks", "category": "produce" },
+        { "item": "Onion", "amount": "1", "category": "produce" },
+        { "item": "Chicken broth", "amount": "1.5L", "category": "pantry" }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Spaghetti Bolognese",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Ground beef", "amount": "500g", "category": "meat" },
+        { "item": "Spaghetti", "amount": "500g", "category": "pantry" },
+        { "item": "Tomato sauce", "amount": "700g", "category": "pantry" },
+        { "item": "Onion", "amount": "1", "category": "produce" },
+        { "item": "Garlic", "amount": "4 cloves", "category": "produce" },
+        { "item": "Olive oil", "amount": "2 tbsp", "category": "pantry" },
+        { "item": "Italian herbs", "amount": "2 tsp", "category": "spices" }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Grilled Chicken & Vegetables",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Chicken breast", "amount": "600g", "category": "meat" },
+        { "item": "Broccoli", "amount": "2 heads", "category": "produce" },
+        { "item": "Carrots", "amount": "4", "category": "produce" },
+        { "item": "Bell peppers", "amount": "2", "category": "produce" },
+        { "item": "Olive oil", "amount": "3 tbsp", "category": "pantry" },
+        { "item": "Garlic powder", "amount": "2 tsp", "category": "spices" },
+        { "item": "Salt & pepper", "amount": "to taste", "category": "spices" }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Beef Tacos",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Ground beef", "amount": "500g", "category": "meat" },
+        { "item": "Taco shells", "amount": "12", "category": "pantry" },
+        { "item": "Lettuce", "amount": "1 head", "category": "produce" },
+        { "item": "Tomato", "amount": "3", "category": "produce" },
+        { "item": "Cheddar cheese", "amount": "200g", "category": "dairy" },
+        { "item": "Sour cream", "amount": "1 cup", "category": "dairy" },
+        { "item": "Taco seasoning", "amount": "2 tbsp", "category": "spices" }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Baked Salmon with Rice",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Salmon fillets", "amount": "4", "category": "meat" },
+        { "item": "Rice", "amount": "2 cups", "category": "pantry" },
+        { "item": "Lemon", "amount": "2", "category": "produce" },
+        { "item": "Asparagus", "amount": "1 bunch", "category": "produce" },
+        { "item": "Olive oil", "amount": "3 tbsp", "category": "pantry" },
+        { "item": "Garlic", "amount": "3 cloves", "category": "produce" },
+        { "item": "Dill", "amount": "2 tsp", "category": "spices" }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Vegetable Stir Fry",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Tofu", "amount": "400g", "category": "other" },
+        { "item": "Broccoli", "amount": "1 head", "category": "produce" },
+        { "item": "Bell peppers", "amount": "2", "category": "produce" },
+        { "item": "Carrots", "amount": "2", "category": "produce" },
+        { "item": "Soy sauce", "amount": "1/4 cup", "category": "pantry" },
+        { "item": "Rice", "amount": "2 cups", "category": "pantry" },
+        { "item": "Ginger", "amount": "1 tbsp", "category": "spices" },
+        { "item": "Garlic", "amount": "3 cloves", "category": "produce" }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Chicken Alfredo Pasta",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Chicken breast", "amount": "500g", "category": "meat" },
+        { "item": "Fettuccine", "amount": "500g", "category": "pantry" },
+        { "item": "Heavy cream", "amount": "2 cups", "category": "dairy" },
+        { "item": "Parmesan cheese", "amount": "1 cup", "category": "dairy" },
+        { "item": "Butter", "amount": "4 tbsp", "category": "dairy" },
+        { "item": "Garlic", "amount": "4 cloves", "category": "produce" }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Beef Stir Fry",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Beef strips", "amount": "500g", "category": "meat" },
+        { "item": "Broccoli", "amount": "1 head", "category": "produce" },
+        { "item": "Bell peppers", "amount": "2", "category": "produce" },
+        { "item": "Onion", "amount": "1", "category": "produce" },
+        { "item": "Soy sauce", "amount": "1/4 cup", "category": "pantry" },
+        { "item": "Rice", "amount": "2 cups", "category": "pantry" },
+        { "item": "Garlic", "amount": "3 cloves", "category": "produce" }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Margherita Pizza",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Pizza dough", "amount": "1 ball", "category": "pantry" },
+        { "item": "Tomato sauce", "amount": "1 cup", "category": "pantry" },
+        { "item": "Mozzarella cheese", "amount": "300g", "category": "dairy" },
+        { "item": "Fresh basil", "amount": "1 bunch", "category": "produce" },
+        { "item": "Olive oil", "amount": "2 tbsp", "category": "pantry" }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Roast Chicken Dinner",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Whole chicken", "amount": "1.5kg", "category": "meat" },
+        { "item": "Potatoes", "amount": "1kg", "category": "produce" },
+        { "item": "Carrots", "amount": "6", "category": "produce" },
+        { "item": "Onion", "amount": "2", "category": "produce" },
+        { "item": "Olive oil", "amount": "4 tbsp", "category": "pantry" },
+        { "item": "Rosemary", "amount": "2 sprigs", "category": "spices" },
+        { "item": "Thyme", "amount": "2 tsp", "category": "spices" }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Vegetarian Chili",
+      "category": "dinner",
+      "ingredients": [
+        { "item": "Black beans", "amount": "2 cans", "category": "pantry" },
+        { "item": "Kidney beans", "amount": "2 cans", "category": "pantry" },
+        { "item": "Tomato sauce", "amount": "700g", "category": "pantry" },
+        { "item": "Bell peppers", "amount": "2", "category": "produce" },
+        { "item": "Onion", "amount": "1", "category": "produce" },
+        { "item": "Corn", "amount": "1 can", "category": "pantry" },
+        { "item": "Chili powder", "amount": "2 tbsp", "category": "spices" },
+        { "item": "Cumin", "amount": "1 tbsp", "category": "spices" }
+      ]
+    }
+  ]
+}
