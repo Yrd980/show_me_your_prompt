@@ -1,0 +1,254 @@
+{
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Design landing page mockup",
+      "description": "Create high-fidelity mockups for the new landing page with hero section and features",
+      "priority": "high",
+      "tags": ["design", "ui"],
+      "columnId": "in-progress",
+      "createdAt": 1704067200000,
+      "order": 0
+    },
+    {
+      "id": "task-2",
+      "title": "Fix authentication bug",
+      "description": "Users are unable to log in with social providers on mobile devices",
+      "priority": "high",
+      "tags": ["bug", "auth"],
+      "columnId": "todo",
+      "createdAt": 1704153600000,
+      "order": 0
+    },
+    {
+      "id": "task-3",
+      "title": "Update dependencies",
+      "description": "Update all npm packages to latest stable versions and test compatibility",
+      "priority": "medium",
+      "tags": ["maintenance"],
+      "columnId": "backlog",
+      "createdAt": 1704240000000,
+      "order": 0
+    },
+    {
+      "id": "task-4",
+      "title": "Write API documentation",
+      "description": "Document all REST endpoints with examples and response schemas",
+      "priority": "medium",
+      "tags": ["documentation", "backend"],
+      "columnId": "todo",
+      "createdAt": 1704326400000,
+      "order": 1
+    },
+    {
+      "id": "task-5",
+      "title": "Implement dark mode",
+      "description": "Add dark mode support across the application with theme toggle",
+      "priority": "low",
+      "tags": ["feature", "ui"],
+      "columnId": "backlog",
+      "createdAt": 1704412800000,
+      "order": 1
+    },
+    {
+      "id": "task-6",
+      "title": "Setup CI/CD pipeline",
+      "description": "Configure GitHub Actions for automated testing and deployment",
+      "priority": "high",
+      "tags": ["devops", "automation"],
+      "columnId": "in-progress",
+      "createdAt": 1704499200000,
+      "order": 1
+    },
+    {
+      "id": "task-7",
+      "title": "Add user profile page",
+      "description": "Create a dedicated page for user profile with edit capabilities",
+      "priority": "medium",
+      "tags": ["feature", "frontend"],
+      "columnId": "backlog",
+      "createdAt": 1704585600000,
+      "order": 2
+    },
+    {
+      "id": "task-8",
+      "title": "Optimize database queries",
+      "description": "Improve performance of slow queries identified in production logs",
+      "priority": "high",
+      "tags": ["performance", "backend"],
+      "columnId": "done",
+      "createdAt": 1704672000000,
+      "order": 0
+    },
+    {
+      "id": "task-9",
+      "title": "Create onboarding flow",
+      "description": "Design and implement multi-step onboarding for new users",
+      "priority": "medium",
+      "tags": ["feature", "ux"],
+      "columnId": "backlog",
+      "createdAt": 1704758400000,
+      "order": 3
+    },
+    {
+      "id": "task-10",
+      "title": "Fix mobile responsiveness",
+      "description": "Several components break on small screen sizes, need responsive fixes",
+      "priority": "high",
+      "tags": ["bug", "ui", "mobile"],
+      "columnId": "todo",
+      "createdAt": 1704844800000,
+      "order": 2
+    },
+    {
+      "id": "task-11",
+      "title": "Add search functionality",
+      "description": "Implement full-text search across tasks and projects",
+      "priority": "medium",
+      "tags": ["feature", "backend"],
+      "columnId": "backlog",
+      "createdAt": 1704931200000,
+      "order": 4
+    },
+    {
+      "id": "task-12",
+      "title": "Security audit",
+      "description": "Conduct comprehensive security review of authentication and data handling",
+      "priority": "high",
+      "tags": ["security"],
+      "columnId": "todo",
+      "createdAt": 1705017600000,
+      "order": 3
+    },
+    {
+      "id": "task-13",
+      "title": "Setup error monitoring",
+      "description": "Integrate Sentry or similar tool for production error tracking",
+      "priority": "medium",
+      "tags": ["devops", "monitoring"],
+      "columnId": "done",
+      "createdAt": 1705104000000,
+      "order": 1
+    },
+    {
+      "id": "task-14",
+      "title": "Add email notifications",
+      "description": "Send email alerts for important events and updates",
+      "priority": "low",
+      "tags": ["feature", "backend"],
+      "columnId": "backlog",
+      "createdAt": 1705190400000,
+      "order": 5
+    },
+    {
+      "id": "task-15",
+      "title": "Refactor component library",
+      "description": "Consolidate duplicate components and improve reusability",
+      "priority": "medium",
+      "tags": ["refactor", "frontend"],
+      "columnId": "backlog",
+      "createdAt": 1705276800000,
+      "order": 6
+    },
+    {
+      "id": "task-16",
+      "title": "Create admin dashboard",
+      "description": "Build admin interface for user management and analytics",
+      "priority": "low",
+      "tags": ["feature", "admin"],
+      "columnId": "backlog",
+      "createdAt": 1705363200000,
+      "order": 7
+    },
+    {
+      "id": "task-17",
+      "title": "Add unit tests",
+      "description": "Write comprehensive unit tests for utility functions and hooks",
+      "priority": "medium",
+      "tags": ["testing"],
+      "columnId": "done",
+      "createdAt": 1705449600000,
+      "order": 2
+    },
+    {
+      "id": "task-18",
+      "title": "Improve loading states",
+      "description": "Add skeleton loaders and better loading indicators throughout the app",
+      "priority": "low",
+      "tags": ["ux", "ui"],
+      "columnId": "backlog",
+      "createdAt": 1705536000000,
+      "order": 8
+    },
+    {
+      "id": "task-19",
+      "title": "Setup analytics",
+      "description": "Integrate Google Analytics or similar for user behavior tracking",
+      "priority": "medium",
+      "tags": ["analytics", "monitoring"],
+      "columnId": "done",
+      "createdAt": 1705622400000,
+      "order": 3
+    },
+    {
+      "id": "task-20",
+      "title": "Add export functionality",
+      "description": "Allow users to export their data in CSV and JSON formats",
+      "priority": "low",
+      "tags": ["feature"],
+      "columnId": "backlog",
+      "createdAt": 1705708800000,
+      "order": 9
+    },
+    {
+      "id": "task-21",
+      "title": "Update brand colors",
+      "description": "Apply new brand guidelines to color palette and UI elements",
+      "priority": "medium",
+      "tags": ["design", "ui"],
+      "columnId": "done",
+      "createdAt": 1705795200000,
+      "order": 4
+    },
+    {
+      "id": "task-22",
+      "title": "Fix memory leak",
+      "description": "Investigation shows memory leak in real-time updates component",
+      "priority": "high",
+      "tags": ["bug", "performance"],
+      "columnId": "in-progress",
+      "createdAt": 1705881600000,
+      "order": 2
+    },
+    {
+      "id": "task-23",
+      "title": "Add keyboard shortcuts",
+      "description": "Implement common keyboard shortcuts for power users",
+      "priority": "low",
+      "tags": ["feature", "ux"],
+      "columnId": "backlog",
+      "createdAt": 1705968000000,
+      "order": 10
+    },
+    {
+      "id": "task-24",
+      "title": "Migrate to TypeScript",
+      "description": "Convert remaining JavaScript files to TypeScript",
+      "priority": "medium",
+      "tags": ["refactor", "typescript"],
+      "columnId": "done",
+      "createdAt": 1706054400000,
+      "order": 5
+    },
+    {
+      "id": "task-25",
+      "title": "Add drag and drop",
+      "description": "Implement drag-and-drop functionality for task reordering",
+      "priority": "medium",
+      "tags": ["feature", "ux"],
+      "columnId": "in-progress",
+      "createdAt": 1706140800000,
+      "order": 3
+    }
+  ]
+}
