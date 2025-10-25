@@ -1,0 +1,304 @@
+{
+  "messages": [
+    {
+      "id": "1",
+      "channelId": "general",
+      "userId": "user1",
+      "username": "Alice",
+      "userAvatar": "AL",
+      "userColor": "#3b82f6",
+      "content": "Hey everyone! Welcome to the community!",
+      "timestamp": 1704067200000
+    },
+    {
+      "id": "2",
+      "channelId": "general",
+      "userId": "user2",
+      "username": "Bob",
+      "userAvatar": "BO",
+      "userColor": "#ef4444",
+      "content": "Thanks Alice! Happy to be here.",
+      "timestamp": 1704067260000
+    },
+    {
+      "id": "3",
+      "channelId": "general",
+      "userId": "user3",
+      "username": "Charlie",
+      "userAvatar": "CH",
+      "userColor": "#10b981",
+      "content": "This is awesome! What are we building today?",
+      "timestamp": 1704067320000
+    },
+    {
+      "id": "4",
+      "channelId": "general",
+      "userId": "user1",
+      "username": "Alice",
+      "userAvatar": "AL",
+      "userColor": "#3b82f6",
+      "content": "We're working on some exciting new features!",
+      "timestamp": 1704067380000
+    },
+    {
+      "id": "5",
+      "channelId": "general",
+      "userId": "user1",
+      "username": "Alice",
+      "userAvatar": "AL",
+      "userColor": "#3b82f6",
+      "content": "Let me know if anyone has questions",
+      "timestamp": 1704067400000
+    },
+    {
+      "id": "6",
+      "channelId": "random",
+      "userId": "user4",
+      "username": "Diana",
+      "userAvatar": "DI",
+      "userColor": "#f59e0b",
+      "content": "Anyone else excited for the weekend?",
+      "timestamp": 1704068000000
+    },
+    {
+      "id": "7",
+      "channelId": "random",
+      "userId": "user2",
+      "username": "Bob",
+      "userAvatar": "BO",
+      "userColor": "#ef4444",
+      "content": "Definitely! Planning a hiking trip",
+      "timestamp": 1704068100000
+    },
+    {
+      "id": "8",
+      "channelId": "random",
+      "userId": "user5",
+      "username": "Eve",
+      "userAvatar": "EV",
+      "userColor": "#8b5cf6",
+      "content": "That sounds amazing! Where are you going?",
+      "timestamp": 1704068200000
+    },
+    {
+      "id": "9",
+      "channelId": "random",
+      "userId": "user2",
+      "username": "Bob",
+      "userAvatar": "BO",
+      "userColor": "#ef4444",
+      "content": "Thinking about the mountain trails near the lake",
+      "timestamp": 1704068250000
+    },
+    {
+      "id": "10",
+      "channelId": "announcements",
+      "userId": "admin",
+      "username": "Admin",
+      "userAvatar": "AD",
+      "userColor": "#dc2626",
+      "content": "🎉 Welcome to our new community platform!",
+      "timestamp": 1704050000000
+    },
+    {
+      "id": "11",
+      "channelId": "announcements",
+      "userId": "admin",
+      "username": "Admin",
+      "userAvatar": "AD",
+      "userColor": "#dc2626",
+      "content": "Please read the community guidelines in the pinned messages",
+      "timestamp": 1704050100000
+    },
+    {
+      "id": "12",
+      "channelId": "announcements",
+      "userId": "admin",
+      "username": "Admin",
+      "userAvatar": "AD",
+      "userColor": "#dc2626",
+      "content": "New features will be rolled out next week!",
+      "timestamp": 1704070000000
+    },
+    {
+      "id": "13",
+      "channelId": "help",
+      "userId": "user3",
+      "username": "Charlie",
+      "userAvatar": "CH",
+      "userColor": "#10b981",
+      "content": "How do I change my profile picture?",
+      "timestamp": 1704065000000
+    },
+    {
+      "id": "14",
+      "channelId": "help",
+      "userId": "user1",
+      "username": "Alice",
+      "userAvatar": "AL",
+      "userColor": "#3b82f6",
+      "content": "Go to Settings > Profile and click on your avatar",
+      "timestamp": 1704065100000
+    },
+    {
+      "id": "15",
+      "channelId": "help",
+      "userId": "user3",
+      "username": "Charlie",
+      "userAvatar": "CH",
+      "userColor": "#10b981",
+      "content": "Thanks! Found it!",
+      "timestamp": 1704065200000
+    },
+    {
+      "id": "16",
+      "channelId": "help",
+      "userId": "user6",
+      "username": "Frank",
+      "userAvatar": "FR",
+      "userColor": "#06b6d4",
+      "content": "Is there a way to get notifications for specific channels?",
+      "timestamp": 1704066000000
+    },
+    {
+      "id": "17",
+      "channelId": "help",
+      "userId": "user1",
+      "username": "Alice",
+      "userAvatar": "AL",
+      "userColor": "#3b82f6",
+      "content": "Right-click on the channel name and select notification preferences",
+      "timestamp": 1704066100000
+    },
+    {
+      "id": "18",
+      "channelId": "ideas",
+      "userId": "user4",
+      "username": "Diana",
+      "userAvatar": "DI",
+      "userColor": "#f59e0b",
+      "content": "What if we added a dark mode theme?",
+      "timestamp": 1704069000000
+    },
+    {
+      "id": "19",
+      "channelId": "ideas",
+      "userId": "user5",
+      "username": "Eve",
+      "userAvatar": "EV",
+      "userColor": "#8b5cf6",
+      "content": "Great idea! That would be really helpful",
+      "timestamp": 1704069100000
+    },
+    {
+      "id": "20",
+      "channelId": "ideas",
+      "userId": "user2",
+      "username": "Bob",
+      "userAvatar": "BO",
+      "userColor": "#ef4444",
+      "content": "We should also add keyboard shortcuts!",
+      "timestamp": 1704069200000
+    },
+    {
+      "id": "21",
+      "channelId": "ideas",
+      "userId": "user1",
+      "username": "Alice",
+      "userAvatar": "AL",
+      "userColor": "#3b82f6",
+      "content": "Both excellent suggestions! I'll add them to the roadmap",
+      "timestamp": 1704069300000
+    },
+    {
+      "id": "22",
+      "channelId": "showcase",
+      "userId": "user3",
+      "username": "Charlie",
+      "userAvatar": "CH",
+      "userColor": "#10b981",
+      "content": "Just finished my first React project! 🎉",
+      "timestamp": 1704071000000
+    },
+    {
+      "id": "23",
+      "channelId": "showcase",
+      "userId": "user6",
+      "username": "Frank",
+      "userAvatar": "FR",
+      "userColor": "#06b6d4",
+      "content": "Congrats Charlie! What did you build?",
+      "timestamp": 1704071100000
+    },
+    {
+      "id": "24",
+      "channelId": "showcase",
+      "userId": "user3",
+      "username": "Charlie",
+      "userAvatar": "CH",
+      "userColor": "#10b981",
+      "content": "A task manager with drag and drop functionality",
+      "timestamp": 1704071150000
+    },
+    {
+      "id": "25",
+      "channelId": "showcase",
+      "userId": "user4",
+      "username": "Diana",
+      "userAvatar": "DI",
+      "userColor": "#f59e0b",
+      "content": "That sounds awesome! Would love to see it",
+      "timestamp": 1704071200000
+    },
+    {
+      "id": "26",
+      "channelId": "showcase",
+      "userId": "user5",
+      "username": "Eve",
+      "userAvatar": "EV",
+      "userColor": "#8b5cf6",
+      "content": "I just deployed my portfolio website! Check it out",
+      "timestamp": 1704072000000
+    },
+    {
+      "id": "27",
+      "channelId": "showcase",
+      "userId": "user2",
+      "username": "Bob",
+      "userAvatar": "BO",
+      "userColor": "#ef4444",
+      "content": "Nice work Eve! The design looks clean",
+      "timestamp": 1704072100000
+    },
+    {
+      "id": "28",
+      "channelId": "general",
+      "userId": "user6",
+      "username": "Frank",
+      "userAvatar": "FR",
+      "userColor": "#06b6d4",
+      "content": "Does anyone know a good resource for learning TypeScript?",
+      "timestamp": 1704073000000
+    },
+    {
+      "id": "29",
+      "channelId": "general",
+      "userId": "user5",
+      "username": "Eve",
+      "userAvatar": "EV",
+      "userColor": "#8b5cf6",
+      "content": "The official TypeScript handbook is great!",
+      "timestamp": 1704073100000
+    },
+    {
+      "id": "30",
+      "channelId": "general",
+      "userId": "user4",
+      "username": "Diana",
+      "userAvatar": "DI",
+      "userColor": "#f59e0b",
+      "content": "I also recommend Matt Pocock's TypeScript tips on Twitter",
+      "timestamp": 1704073200000
+    }
+  ]
+}

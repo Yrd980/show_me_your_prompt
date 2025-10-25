@@ -1,0 +1,40 @@
+{
+  "channels": [
+    {
+      "id": "general",
+      "name": "general",
+      "description": "General discussion and chat",
+      "icon": "hash"
+    },
+    {
+      "id": "random",
+      "name": "random",
+      "description": "Random off-topic conversations",
+      "icon": "hash"
+    },
+    {
+      "id": "announcements",
+      "name": "announcements",
+      "description": "Important announcements and updates",
+      "icon": "megaphone"
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "description": "Get help and support from the community",
+      "icon": "help-circle"
+    },
+    {
+      "id": "ideas",
+      "name": "ideas",
+      "description": "Share your ideas and suggestions",
+      "icon": "lightbulb"
+    },
+    {
+      "id": "showcase",
+      "name": "showcase",
+      "description": "Show off your projects and achievements",
+      "icon": "star"
+    }
+  ]
+}

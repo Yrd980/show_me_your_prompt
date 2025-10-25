@@ -1,361 +1,94 @@
-# Guidelines for Prompt-Based Mini Projects
+# Prompt-Based Mini Projects Workflow
 
-> Lessons learned from building 001_mealPlanner and best practices for 30-60 minute projects
+> **Purpose**: Reusable Claude workflow for building 30-60 minute React projects
+> **Usage**: Reference this file at project start to apply proven patterns and save tokens
+> **Based on**: 001_mealPlanner (846 lines, 45 minutes)
 
-## Project Methodology
+## Quick Reference
 
-### Scope Definition
-- **Target**: 30-60 minute projects (500-900 lines of code)
-- **Format**: Single-page applications
-- **No external APIs or backends**
-- **Focus on real user needs**, not fancy features
-- **Use COCOMO/scc** for code estimation before starting
+**Constraints**: 600-900 LOC | 3-5 features | 30-60 min | No APIs | Single page
+**Stack**: React 18 • TypeScript • Vite • Tailwind • shadcn/ui • localStorage
+**Structure**: `data/` `types/` `hooks/` `components/` `App.tsx`
 
-### Tech Stack (Proven)
-- React 18 + TypeScript (type safety)
-- Vite (fast dev server)
-- Tailwind CSS (rapid styling)
-- shadcn/ui (pre-built components)
-- localStorage (simple persistence)
-- lucide-react (icons)
+## Standard Workflow
 
-### Project Structure
-```
-src/
-├── data/           # JSON mock data
-├── types/          # TypeScript interfaces
-├── hooks/          # Custom hooks (useLocalStorage, etc.)
-├── components/     # Feature components
-│   └── ui/        # shadcn/ui components
-├── lib/           # Utilities (cn helper)
-├── App.tsx        # Main layout & state
-└── index.css      # Global styles
-```
+**PLANNING** (propose to user before coding):
+1. Real problem + 3-5 features
+2. Run `scc template/src` estimate
+3. Component breakdown
+4. Data structure design
 
-## Development Process
+**IMPLEMENTATION** (execute in order):
+1. `./create-project.sh <name>`
+2. Create `types/*.ts` interfaces
+3. Create `data/*.json` mock data (20-30 items)
+4. Create `hooks/useLocalStorage.ts`
+5. Create components (under 150 lines each)
+6. Wire in `App.tsx` (state + layout)
+7. Test with MCP Chrome DevTools
 
-### Planning Phase
-1. Identify real-world problem
-2. Define 3-5 core features (no more!)
-3. Estimate code size with scc
-4. Break into components
-5. Plan data structure
+**COMPLETION**:
+- Run `scc <project>/src` for stats
+- Test all features via MCP
+- Screenshot for docs
 
-### Implementation Order
-1. Create project from template
-2. Define TypeScript types/interfaces
-3. Create mock data (JSON)
-4. Build utility hooks
-5. Build individual components (bottom-up)
-6. Wire everything in App.tsx
-7. Test with MCP tools (Chrome DevTools)
+## Design Rules
 
-### Component Design Principles
-- Keep components under 150 lines
-- Single responsibility
-- Props over context for simple apps
-- Use controlled components
-- Aggregate logic in parent (App.tsx)
+- Components < 150 lines, single responsibility
+- State in App.tsx (useState), computed via useMemo
+- Props not context, controlled components
+- JSON in `data/`, types in `types/`
+- 3-5 components, 1-2 hooks, 20-30 data items
+- Use: Button, Card, Checkbox (always), Input, Select, Badge, Dialog (as needed)
 
-## Key Success Factors
+## Code Patterns (copy from 001_mealPlanner)
 
-### What Worked Well
-- **JSON mock data in separate file** - keeps data clean and readable
-- **localStorage hook** - reusable persistence without complexity
-- **Component isolation** - each component independent
-- **Incremental testing** - test each feature as built
-- **Category-based organization** - group data logically
-- **Simple state management** - useState in App.tsx sufficient
+**1. useLocalStorage**: `001_mealPlanner/src/hooks/useLocalStorage.ts`
+**2. Data Aggregation**: See `ShoppingList.tsx` useMemo pattern
+**3. Slot Selection**: See `App.tsx` selectedSlot state pattern
+**4. Checkbox Set**: `useState<Set<string>>(new Set())` + toggle pattern
 
-### Complexity Sweet Spots
-- 3-5 components per project
-- 1-2 custom hooks
-- 20-30 data items (meals, tasks, etc.)
-- 2-3 shadcn/ui components
-- 1 main data structure
+## Project Scope Guide
 
-## Reusable Patterns
+**✅ Good**: Meal planner, Habit tracker, Budget calc, Workout log, Reading list, Timer, Todo, Flashcards, Expense splitter, Password gen, Notes, Contacts
+**❌ Avoid**: Real-time collab, Auth, File upload, Video/audio, Maps, Payment, Complex algos, Heavy data processing
 
-### 1. Data Aggregation Pattern
-```typescript
-// Collect from multiple sources, dedupe, group
-const aggregated = useMemo(() => {
-  const map = new Map();
+**Criteria**: Practical + Visual + Interactive + Stateful + Self-contained
 
-  // Collect and merge items
-  sources.forEach(source => {
-    source.items.forEach(item => {
-      const key = item.id;
-      if (map.has(key)) {
-        // Merge logic
-        map.get(key).amount += item.amount;
-      } else {
-        map.set(key, { ...item });
-      }
-    });
-  });
+## Testing (MCP Chrome DevTools)
 
-  // Group by category
-  const grouped = {};
-  map.forEach(item => {
-    if (!grouped[item.category]) {
-      grouped[item.category] = [];
-    }
-    grouped[item.category].push(item);
-  });
-
-  return grouped;
-}, [dependencies]);
+```bash
+cd <project> && npm run dev  # Background mode
+# Navigate localhost:5173
+# Take snapshot → Click features → Check localStorage (refresh) → Screenshot
 ```
 
-### 2. Slot Selection Pattern
-```typescript
-// Parent component
-const [selectedSlot, setSelectedSlot] = useState(null);
+**Verify**: Buttons work | Data persists | No errors | Forms validate | Lists update | Checkboxes toggle | Delete works | Mobile responsive
 
-const handleSelectSlot = (id, type) => {
-  setSelectedSlot({ id, type });
-};
+## Common Issues
 
-const handleSelectItem = (item) => {
-  if (!selectedSlot) return;
-  // Update data with selected item
-  setSelectedSlot(null); // Close selector
-};
+- **JSON imports**: Already configured
+- **localStorage**: Use hook from 001_mealPlanner
+- **Type errors**: Cast JSON `as MyType[]`
+- **Large components**: Split or extract to hooks
+- **Complex state**: useState + useMemo enough, no Redux
 
-// Click opens selector with context
-// Selector closes on selection
-```
+## Estimation Target
 
-### 3. localStorage Pattern
-```typescript
-// useLocalStorage.ts
-export function useLocalStorage<T>(key: string, initialValue: T) {
-  const [storedValue, setStoredValue] = useState<T>(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.error('Error loading from localStorage:', error);
-      return initialValue;
-    }
-  });
+| Metric | Target | 001_mealPlanner |
+|--------|--------|-----------------|
+| Total LOC | 600-900 | 846 ✅ |
+| TypeScript | 400-600 | 520 ✅ |
+| JSON | 100-300 | 260 ✅ |
+| Complexity | < 100 | 65 ✅ |
+| Time | 30-60min | 45min ✅ |
 
-  const setValue = (value: T | ((val: T) => T)) => {
-    try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
-    } catch (error) {
-      console.error('Error saving to localStorage:', error);
-    }
-  };
+## Pre-Flight Checklist
 
-  return [storedValue, setValue] as const;
-}
-
-// Usage in component
-const [data, setData] = useLocalStorage('myKey', initialValue);
-// Auto-saves on every change
-```
-
-### 4. Checkbox Tracking Pattern
-```typescript
-const [checked, setChecked] = useState<Set<string>>(new Set());
-
-const toggle = (id: string) => {
-  setChecked(prev => {
-    const next = new Set(prev);
-    if (next.has(id)) {
-      next.delete(id);
-    } else {
-      next.add(id);
-    }
-    return next;
-  });
-};
-
-// Check if item is checked
-const isChecked = checked.has(itemId);
-```
-
-## Project Ideas That Work
-
-### Characteristics
-- **Practical** - solves daily problems
-- **Visual** - grid/list/cards
-- **Interactive** - clicking, checking, selecting
-- **Stateful** - worth saving data
-- **Self-contained** - no external dependencies
-
-### Good Examples
-- ✅ Meal planner (001_mealPlanner)
-- ✅ Habit tracker
-- ✅ Budget calculator
-- ✅ Workout logger
-- ✅ Recipe manager
-- ✅ Reading list
-- ✅ Time tracker
-- ✅ Expense splitter
-- ✅ Password generator
-- ✅ Pomodoro timer
-- ✅ Note-taking app
-- ✅ Todo list with categories
-- ✅ Flashcard app
-- ✅ Contact organizer
-
-### Avoid
-- ❌ Real-time collaboration
-- ❌ Complex algorithms
-- ❌ Heavy data processing
-- ❌ Authentication systems
-- ❌ File uploads/processing
-- ❌ Video/audio processing
-- ❌ Maps integration
-- ❌ Payment processing
-
-## Testing Strategy
-
-### Use MCP Chrome DevTools
-1. Navigate to localhost
-2. Take snapshot (accessibility tree)
-3. Click through user flows
-4. Verify data aggregation
-5. Test localStorage persistence (refresh page)
-6. Check responsive layout
-7. Take screenshot for documentation
-
-### Test Checklist
-- [ ] All buttons work
-- [ ] Data persists on refresh
-- [ ] No console errors
-- [ ] Forms validate properly
-- [ ] Lists update correctly
-- [ ] Checkboxes toggle
-- [ ] Remove/delete functions work
-- [ ] Mobile responsive
-
-## Documentation
-
-### Include in Each Project
-- Screenshot of working app
-- Feature list with checkmarks
-- Code statistics (scc output)
-- Quick start instructions
-- Tech stack summary
-
-### Example Project README
-```markdown
-# Project Name
-
-Brief description of what it does and the problem it solves.
-
-## Features
-- ✅ Feature 1
-- ✅ Feature 2
-- ✅ Feature 3
-
-## Tech Stack
-React • TypeScript • Tailwind • shadcn/ui
-
-## Getting Started
-\`\`\`bash
-npm install
-npm run dev
-\`\`\`
-
-## Code Stats
-- Lines of Code: XXX
-- Components: X
-- Time to Build: 30-60 min
-```
-
-## Estimation Accuracy
-
-### For 30-60 min projects
-- **TypeScript**: 400-600 lines
-- **JSON data**: 100-300 lines
-- **CSS**: 60-100 lines
-- **Total**: 600-900 lines
-- **Complexity**: < 100
-- **Components**: 5-8 files
-
-### Example from 001_mealPlanner
-- Total: 846 lines ✅
-- TypeScript: 520 lines ✅
-- JSON: 260 lines ✅
-- CSS: 66 lines ✅
-- Complexity: 65 ✅
-- Time: ~45 minutes ✅
-
-## Common Components to Reuse
-
-### From shadcn/ui
-- Button (always needed)
-- Card (main containers)
-- Checkbox (lists, settings)
-- Input (forms)
-- Select (dropdowns)
-- Badge (categories, tags)
-- Dialog (modals, confirmations)
-- Tabs (multiple views)
-
-### Custom Hooks
-- `useLocalStorage` - data persistence
-- `useDebounce` - search inputs
-- `useToggle` - boolean states
-
-## Troubleshooting
-
-### Common Issues
-
-**JSON imports not working**
-- Already configured in template, no action needed
-
-**localStorage not syncing**
-- Use the useLocalStorage hook pattern above
-- Listen to 'storage' event for cross-tab sync
-
-**Type errors with JSON data**
-- Cast imported JSON: `as MyType[]`
-- Define proper TypeScript interfaces
-
-**Components too large**
-- Break into smaller sub-components
-- Extract repeated UI patterns
-- Move logic to custom hooks
-
-**State management complex**
-- For small projects, useState in App.tsx is enough
-- Use useMemo for computed/derived state
-- Don't over-engineer with Redux/Zustand
-
-## Next Project Checklist
-
-Before starting a new project, verify:
-
-- [ ] Real user need identified?
-- [ ] 3-5 core features defined?
-- [ ] Code estimate 600-900 lines?
-- [ ] Data structure designed?
-- [ ] No external APIs needed?
-- [ ] Can use template?
-- [ ] Testable with MCP tools?
-- [ ] Achievable in 30-60 minutes?
-
-## Philosophy
-
-> Keep it simple, make it work, ship it fast.
-
-These projects are perfect for:
-- Learning new concepts
-- Rapid prototyping
-- Portfolio building
-- Practice coding
-- Solving personal problems
-
-Don't overthink it. Build, test, iterate. The goal is to create something useful quickly, not to build a production-ready enterprise application.
+- [ ] Real need? 3-5 features? 600-900 LOC estimate?
+- [ ] Data structure designed? No APIs? Template ready?
+- [ ] Testable with MCP? 30-60 min achievable?
 
 ---
 
-**Remember**: Constraint breeds creativity. The 30-60 minute limit forces you to focus on what really matters.
+**Philosophy**: Constraint breeds creativity. Keep it simple, make it work, ship it fast.
