@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { VoiceInput } from './VoiceInput';
+import { VoiceEnabledInput } from './VoiceEnabledInput';
 
 interface FormData {
   name: string;
@@ -20,25 +20,7 @@ export function VoiceInputForm({ token, appkey }: VoiceInputFormProps) {
     email: '',
     message: ''
   });
-  const [activeField, setActiveField] = useState<keyof FormData | null>(null);
   const [submitted, setSubmitted] = useState(false);
-
-  const handleTranscriptionChange = (text: string) => {
-    if (activeField) {
-      // Get the current field value when switching fields
-      const currentValue = formData[activeField];
-      // If the field already has content and we're adding more, append
-      // Otherwise just use the new transcription
-      setFormData(prev => ({
-        ...prev,
-        [activeField]: text
-      }));
-    }
-  };
-
-  const handleFieldFocus = (field: keyof FormData) => {
-    setActiveField(field);
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,7 +39,6 @@ export function VoiceInputForm({ token, appkey }: VoiceInputFormProps) {
       email: '',
       message: ''
     });
-    setActiveField(null);
   };
 
   if (!token || !appkey) {
@@ -95,12 +76,12 @@ export function VoiceInputForm({ token, appkey }: VoiceInputFormProps) {
   }
 
   return (
-    <div className="w-full max-w-4xl space-y-6">
+    <div className="w-full max-w-4xl">
       <Card>
         <CardHeader>
-          <CardTitle>Voice-Enabled Contact Form</CardTitle>
+          <CardTitle>Smart Voice-Enabled Contact Form</CardTitle>
           <CardDescription>
-            Fill out the form using your voice or type manually
+            Click on a field to automatically start voice recording. Just speak - no buttons needed!
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -117,44 +98,54 @@ export function VoiceInputForm({ token, appkey }: VoiceInputFormProps) {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <label className="text-sm font-medium">
-                  Name {activeField === 'name' && <span className="text-primary">(Recording to this field)</span>}
+                <label className="text-sm font-medium flex items-center gap-2">
+                  Name
+                  <span className="text-xs text-muted-foreground">(Voice enabled)</span>
                 </label>
-                <input
+                <VoiceEnabledInput
+                  token={token}
+                  appkey={appkey}
+                  name="name"
                   type="text"
                   value={formData.name}
-                  onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                  onFocus={() => handleFieldFocus('name')}
-                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  onChange={(value) => setFormData(prev => ({ ...prev, name: value }))}
                   placeholder="Your name"
+                  voiceEnabled={true}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium">
-                  Email {activeField === 'email' && <span className="text-primary">(Recording to this field)</span>}
+                <label className="text-sm font-medium flex items-center gap-2">
+                  Email
+                  <span className="text-xs text-muted-foreground">(Type only)</span>
                 </label>
-                <input
+                <VoiceEnabledInput
+                  token={token}
+                  appkey={appkey}
+                  name="email"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                  onFocus={() => handleFieldFocus('email')}
-                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  onChange={(value) => setFormData(prev => ({ ...prev, email: value }))}
                   placeholder="your.email@example.com"
+                  voiceEnabled={false}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium">
-                  Message {activeField === 'message' && <span className="text-primary">(Recording to this field)</span>}
+                <label className="text-sm font-medium flex items-center gap-2">
+                  Message
+                  <span className="text-xs text-muted-foreground">(Voice enabled)</span>
                 </label>
-                <textarea
+                <VoiceEnabledInput
+                  token={token}
+                  appkey={appkey}
+                  name="message"
+                  type="textarea"
                   value={formData.message}
-                  onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                  onFocus={() => handleFieldFocus('message')}
-                  rows={4}
-                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  onChange={(value) => setFormData(prev => ({ ...prev, message: value }))}
                   placeholder="Your message"
+                  voiceEnabled={true}
+                  rows={4}
                 />
               </div>
 
@@ -170,32 +161,6 @@ export function VoiceInputForm({ token, appkey }: VoiceInputFormProps) {
           )}
         </CardContent>
       </Card>
-
-      {!submitted && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Voice Input</CardTitle>
-            <CardDescription>
-              {activeField
-                ? `Recording will fill the "${activeField}" field. Click on a different field to change.`
-                : 'Click on a form field above, then use voice input to fill it'}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <VoiceInput
-              token={token}
-              appkey={appkey}
-              fieldId={activeField || undefined}
-              onTranscriptionChange={handleTranscriptionChange}
-              placeholder={
-                activeField
-                  ? `Speak to fill "${activeField}" field...`
-                  : 'Please select a field above first'
-              }
-            />
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }
