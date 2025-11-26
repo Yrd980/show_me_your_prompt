@@ -1,0 +1,44 @@
+{
+  "achievements": [
+    {
+      "id": "ach-001",
+      "name": "First Steps",
+      "description": "Add your first item to the fridge",
+      "emoji": "🎉",
+      "xpReward": 50,
+      "condition": { "type": "count", "metric": "itemsAdded", "target": 1 }
+    },
+    {
+      "id": "ach-002",
+      "name": "Stocked Up",
+      "description": "Have 10 items in your fridge at once",
+      "emoji": "📦",
+      "xpReward": 100,
+      "condition": { "type": "threshold", "metric": "currentItems", "target": 10 }
+    },
+    {
+      "id": "ach-003",
+      "name": "Variety Pack",
+      "description": "Have items from 5 different categories",
+      "emoji": "🌈",
+      "xpReward": 150,
+      "condition": { "type": "threshold", "metric": "uniqueCategories", "target": 5 }
+    },
+    {
+      "id": "ach-004",
+      "name": "Rescue Hero",
+      "description": "Save 3 items before they expire",
+      "emoji": "🦸",
+      "xpReward": 200,
+      "condition": { "type": "count", "metric": "itemsRescued", "target": 3 }
+    },
+    {
+      "id": "ach-005",
+      "name": "Rare Find",
+      "description": "Add a rare or higher rarity item",
+      "emoji": "💎",
+      "xpReward": 100,
+      "condition": { "type": "threshold", "metric": "hasRareItem", "target": 1 }
+    }
+  ]
+}
