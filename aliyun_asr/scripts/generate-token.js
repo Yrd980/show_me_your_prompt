@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 /**
  * Aliyun Token Generator
  *
@@ -11,14 +10,16 @@
  * - In production, implement a backend service to generate tokens
  *
  * Usage:
- *   node scripts/generate-token.js
+ * node scripts/generate-token.mjs
  *
  * Or with environment variables:
- *   ACCESS_KEY_ID=xxx ACCESS_KEY_SECRET=xxx node scripts/generate-token.js
+ * ACCESS_KEY_ID=xxx ACCESS_KEY_SECRET=xxx node scripts/generate-token.mjs
  */
 
-const crypto = require('crypto');
-const https = require('https');
+// ES Module imports for Node.js built-ins
+import 'dotenv/config';
+import * as crypto from 'crypto';
+import * as https from 'https';
 
 // Configuration
 const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID || '';
@@ -27,10 +28,10 @@ const ACCESS_KEY_SECRET = process.env.ACCESS_KEY_SECRET || '';
 if (!ACCESS_KEY_ID || !ACCESS_KEY_SECRET) {
   console.error('Error: ACCESS_KEY_ID and ACCESS_KEY_SECRET are required');
   console.error('\nUsage:');
-  console.error('  ACCESS_KEY_ID=your_id ACCESS_KEY_SECRET=your_secret node scripts/generate-token.js');
+  console.error(' ACCESS_KEY_ID=your_id ACCESS_KEY_SECRET=your_secret node scripts/generate-token.mjs');
   console.error('\nOr create a .env file with:');
-  console.error('  ACCESS_KEY_ID=your_id');
-  console.error('  ACCESS_KEY_SECRET=your_secret');
+  console.error(' ACCESS_KEY_ID=your_id');
+  console.error(' ACCESS_KEY_SECRET=your_secret');
   process.exit(1);
 }
 
@@ -63,15 +64,12 @@ function percentEncode(value) {
 function generateSignature(method, params, accessKeySecret) {
   // Sort parameters alphabetically
   const sortedKeys = Object.keys(params).sort();
-
   // Build canonical query string
   const canonicalQueryString = sortedKeys
     .map(key => `${percentEncode(key)}=${percentEncode(params[key])}`)
     .join('&');
-
   // Build string to sign
   const stringToSign = `${method}&${percentEncode('/')}&${percentEncode(canonicalQueryString)}`;
-
   // Calculate signature
   const hmac = crypto.createHmac('sha1', `${accessKeySecret}&`);
   hmac.update(stringToSign);
@@ -83,7 +81,6 @@ function generateSignature(method, params, accessKeySecret) {
  */
 async function createToken() {
   const timestamp = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
-
   const params = {
     AccessKeyId: ACCESS_KEY_ID,
     Action: 'CreateToken',
@@ -95,44 +92,34 @@ async function createToken() {
     SignatureVersion: '1.0',
     SignatureNonce: generateUUID()
   };
-
   // Generate signature
   const signature = generateSignature('GET', params, ACCESS_KEY_SECRET);
   params.Signature = signature;
-
   // Build query string
   const queryString = Object.keys(params)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     .join('&');
-
   const url = `https://nls-meta.cn-shanghai.aliyuncs.com/?${queryString}`;
-
   console.log('Requesting token from Aliyun...\n');
-
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
       let data = '';
-
       res.on('data', (chunk) => {
         data += chunk;
       });
-
       res.on('end', () => {
         try {
           const response = JSON.parse(data);
-
           if (res.statusCode === 200) {
             const token = response.Token.Id;
             const expireTime = response.Token.ExpireTime;
             const expireDate = new Date(expireTime * 1000);
-
             console.log('✅ Token generated successfully!\n');
             console.log('Token:');
             console.log(token);
             console.log('\nExpires at:', expireDate.toLocaleString());
             console.log('Valid for:', Math.floor((expireTime * 1000 - Date.now()) / 1000 / 60 / 60), 'hours\n');
             console.log('Copy this token to use in your application.');
-
             resolve(token);
           } else {
             console.error('❌ Failed to generate token\n');
