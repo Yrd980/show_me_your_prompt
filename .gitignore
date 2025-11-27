@@ -37,3 +37,7 @@ pnpm-debug.log*
 */dist/
 */build/
 */.vite/
+
+# Local settings
+.claude/settings.local.json
+.serena/
